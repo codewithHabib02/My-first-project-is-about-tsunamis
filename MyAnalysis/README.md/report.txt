@@ -1,0 +1,34 @@
+# Tsunami Prediction Project
+
+**Author:** Habibulie M.Barry
+
+## Overview
+This project predicts the likelihood of tsunamis based on historical and environmental data using machine learning.
+
+## Workflow
+1. Load and preprocess the data.
+2. Split data into training and testing sets.
+3. Train a Random Forest Regressor on features (`x`) to predict the target variable `tsunami`.
+4. Evaluate model performance and identify feature importance.
+5. Save processed data and results for analysis.
+
+## Tools
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- Matplotlib / Seaborn (optional for visualization)
+
+## Example Code
+```python
+from sklearn.ensemble import RandomForestRegressor
+
+model = RandomForestRegressor(random_state=42)
+model.fit(x_train, y_train)  # y_train is the 'tsunami' variable
+importance = model.feature_importances_
+
+new_rff = pd.DataFrame({
+    'feature': x.columns,
+    'importance': importance
+})
+
+new_rff.to_csv("processed/x_res_smote.csv", index=False)
